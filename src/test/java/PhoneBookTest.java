@@ -41,6 +41,18 @@ import static org.junit.jupiter.api.Assertions.*;
             assertNull(phoneBook.findByNumber("67890"));
         }
 
+        @Test
+        public void testFindByName() {
+            PhoneBook phoneBook = new PhoneBook();
+            phoneBook.add("Alice", "12345");
+            assertEquals("12345", phoneBook.findByName("Alice"));
+        }
+
+        @Test
+        public void testFindByNonExistentName() {
+            PhoneBook phoneBook = new PhoneBook();
+            phoneBook.add("Alice", "12345");
+            assertNull(phoneBook.findByName("Bob"));
+        }
     }
 
-}
