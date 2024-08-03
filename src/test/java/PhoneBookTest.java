@@ -1,2 +1,35 @@
+import org.junit.jupiter.api.Test;
+import ru.netology.PhoneBook;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class PhoneBookTest {
+    import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+    public class PhoneBookTest {
+        @Test
+        public void testAddSingleContact() {
+            PhoneBook phoneBook = new PhoneBook();
+            int count = phoneBook.add("Alice", "12345");
+            assertEquals(1, count);
+        }
+
+        @Test
+        public void testAddMultipleContacts() {
+            PhoneBook phoneBook = new PhoneBook();
+            phoneBook.add("Alice", "12345");
+            int count = phoneBook.add("Bob", "67890");
+            assertEquals(2, count);
+        }
+
+        @Test
+        public void testAddDuplicateName() {
+            PhoneBook phoneBook = new PhoneBook();
+            phoneBook.add("Alice", "12345");
+            int count = phoneBook.add("Alice", "67890");
+            assertEquals(1, count); // На допускется добавление  того же имени
+        }
+    }
+
 }
