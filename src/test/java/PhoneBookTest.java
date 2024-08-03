@@ -1,11 +1,7 @@
 import org.junit.jupiter.api.Test;
 import ru.netology.PhoneBook;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PhoneBookTest {
-    import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
     public class PhoneBookTest {
         @Test
@@ -30,6 +26,21 @@ import static org.junit.jupiter.api.Assertions.*;
             int count = phoneBook.add("Alice", "67890");
             assertEquals(1, count); // На допускется добавление  того же имени
         }
+
+        @Test
+        public void testFindByNumber() {
+            PhoneBook phoneBook = new PhoneBook();
+            phoneBook.add("Alice", "12345");
+            assertEquals("Alice", phoneBook.findByNumber("12345"));
+        }
+
+        @Test
+        public void testFindByNonExistentNumber() {
+            PhoneBook phoneBook = new PhoneBook();
+            phoneBook.add("Alice", "12345");
+            assertNull(phoneBook.findByNumber("67890"));
+        }
+
     }
 
 }
